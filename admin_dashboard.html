@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("bg.jpg");
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgb(203, 201, 201);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+            
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table, th, td {
+            border: 1px solid #fbfbfb;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #d4cfcf;
+        }
+
+        /* Style for the iframe */
+        iframe {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            border: none;
+            margin-top: 20px;
+            box-shadow:10px 15px 50px rgb(255, 0, 136);
+        }
+
+        /* Style for the fullscreen link */
+        .fullscreen-link {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .fullscreen-link a {
+            color: #007bff;
+            text-decoration:none;
+        }
+
+        .fullscreen-link a:hover {
+            text-decoration: underline;
+        }
+        button {
+    
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #0b0101;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+    
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registered Candidates</h1>
+        <div id="candidatesTable"></div>
+    </div>
+   
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQAyYyl9WkUmKToR98B_XhyxyhcH9UBL4KB36CRDoRXpxhohQCkNvhwO99pjBpdedUciNDWZHxPaAev/pubhtml"></iframe>
+   
+    <div class="container">
+     <h1>prebooked time slot</h1>
+     <div id="bookedSlots"></div>
+    </div>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQqtqI--Kl2InDDrMMm0VNHxEPpxBwC-bH7ZPby7dgfzD8blnS_75BrUQyZZj6jSmetDHgkClnjIZnA/pubhtml?widget=true&amp;headers=false"></iframe>    
+
+    <a href="index.html"><button type="submit">home</button></a>
+   
+</body>
+</html>

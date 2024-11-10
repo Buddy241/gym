@@ -1,0 +1,180 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prebooking timeslot</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url("bg.jpg");
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgb(203, 201, 201);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        position: relative;
+        
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    table, th, td {
+        border: 1px solid #fbfbfb;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #d4cfcf;
+    }
+
+    /* Style for the iframe */
+    iframe {
+        width: 100%;
+        height: 500px; /* Adjust height as needed */
+        border: none;
+        margin-top: 20px;
+        box-shadow:10px 15px 50px rgb(255, 0, 136);
+    }
+
+    /* Style for the fullscreen link */
+    .fullscreen-link {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .fullscreen-link a {
+        color: #007bff;
+        text-decoration:none;
+    }
+
+    .fullscreen-link a:hover {
+        text-decoration: underline;
+    }
+    button {
+
+width: 100%;
+padding: 10px;
+background-color: #007bff;
+color: #0b0101;
+border: none;
+cursor: pointer;
+margin-top: 1rem;
+transition: background 0.3s ease;
+
+}
+
+button:hover {
+background-color: rgb(255, 255, 255);
+}
+
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000000; /* Label color */
+}
+.prebookForm-container{
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgb(212, 209, 209);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        position: relative;
+        
+    }
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000; /* Border color */
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #000; /* Text color */
+  background-color: #fff; /* Background color */
+}
+
+input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #333; /* Darker background color on hover */
+}
+
+</style>
+</head>
+<body>
+  
+  <div class="prebookForm-container">
+  <h1>Prebook a Slot</h1>
+  <form id="submit-to-google-sheet">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phoneNumber">Your Number:</label>
+    <input name="phoneNumber" type="number" id="phoneNumber" placeholder="Your number">
+  
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Time Slot:</label>
+    <select id="time slot" name="time slot" required>
+      <option value="08:00">8:00 AM</option>
+      <option value="10:00">10:00 AM</option>
+      <option value="12:00">12:00 PM</option>
+      <option value="14:00">2:00 PM</option>
+      <option value="16:00">4:00 PM</option>
+      <option value="18:00">6:00 PM</option>
+    </select>
+    <button type="submit">Prebook Slot</button>
+  </form>
+ </div>
+ <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxFTDRB3dnmkPJTsXVPl5NsKhJzb-tN8hfIeQEPFy7Xt8cgK6oHmJlSBKXFh9D1wD55fQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        console.log('Success!', response);
+        alert('You have successfully prebooked a time slot!');
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
